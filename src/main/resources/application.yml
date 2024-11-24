@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: smart
+
+hr:
+  employee:
+    smart:
+      maxYearsThreshold: 10
+      middleYearsThreshold: 5
+      minYearsThreshold: 2.5
+      maxYearsPercent: 10
+      middleYearsPercent: 5
+      minYearsPercent: 2
+      defaultPercent: 0
