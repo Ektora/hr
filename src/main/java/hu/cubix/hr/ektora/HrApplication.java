@@ -32,12 +32,7 @@ public class HrApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        List<Employee> employees = new ArrayList<>(Arrays.asList(
-            new Employee((long) 1, "Zsolt", "IT szakértő", 600_000, LocalDateTime.of(2017, 1, 1, 0, 0)),
-            new Employee((long) 2, "Tibor", "IT csoportvezető", 550_000, LocalDateTime.of(2022, 3, 1, 0, 0)),
-            new Employee((long) 3, "Kristóf", "IT technikus", 450_000, LocalDateTime.of(2023, 9, 1, 0, 0)),
-            new Employee((long) 4, "Krisztián", "IT vezető", 900_000, LocalDateTime.of(2003, 5, 1, 0, 0))
-        ));
+        List<Employee> employees = employeeList();
 
         System.out.println(salaryService.getFinalSalary(employees.get(0)));
         System.out.println(salaryService.getFinalSalary(employees.get(1)));
@@ -45,5 +40,14 @@ public class HrApplication implements CommandLineRunner {
         System.out.println(salaryService.getFinalSalary(employees.get(3)));
     }
 
+    @Bean
+    public List<Employee> employeeList(){
+        return new ArrayList<>(Arrays.asList(
+                new Employee((long) 1, "Zsolt", "IT szakértő", 600_000, LocalDateTime.of(2017, 1, 1, 0, 0)),
+                new Employee((long) 2, "Tibor", "IT csoportvezető", 550_000, LocalDateTime.of(2022, 3, 1, 0, 0)),
+                new Employee((long) 3, "Kristóf", "IT technikus", 450_000, LocalDateTime.of(2023, 9, 1, 0, 0)),
+                new Employee((long) 4, "Krisztián", "IT vezető", 900_000, LocalDateTime.of(2003, 5, 1, 0, 0))
+        ));
+    }
 
 }

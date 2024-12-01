@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/employeeStyle.css">
+    <title>Employee</title>
+</head>
+<body>
+    <form th:action="@{/employee}" method="post" th:object="${newEmployee}">
+        <label for="id">ID:</label>
+        <input id="id" type="number" th:field="*{id}"/><br>
+        <label for="name">Name:</label>
+        <input id="name" type="text" th:field="*{name}"/><br>
+        <label for="job">Job:</label>
+        <input id="job" type="text" th:field="*{job}"/><br>
+        <label for="salary">Salary:</label>
+        <input id="salary" type="number" th:field="*{salary}"/><br>
+        <label for="startedWorking">Started Working:</label>
+        <input id="startedWorking" type="datetime-local" th:field="*{startedWorking}"/><br>
+        <input type="submit" value="Add">
+    </form>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Started Working</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee: ${employees}">
+            <td th:text="${employee.name}">Name</td>
+            <td th:text="${employee.job}">Job</td>
+            <td th:text="${employee.salary}">Salary</td>
+            <td th:text="${employee.startedWorking}">Started Working</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

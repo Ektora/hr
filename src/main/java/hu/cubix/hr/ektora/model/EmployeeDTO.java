@@ -2,25 +2,24 @@ package hu.cubix.hr.ektora.model;
 
 import java.time.LocalDateTime;
 
-public class Employee {
+public class EmployeeDTO {
+
     private Long id;
     private String name;
     private String job;
     private int salary;
     private LocalDateTime startedWorking;
 
-    public Employee(){}
+    public Long getId() {
+        return id;
+    }
 
-    public Employee(Long id, String name, String job, int salary, LocalDateTime startedWorking) {
+    public EmployeeDTO(Long id, String name, String job, int salary, LocalDateTime startedWorking) {
         this.id = id;
         this.name = name;
         this.job = job;
         this.salary = salary;
         this.startedWorking = startedWorking;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public void setId(Long id) {
