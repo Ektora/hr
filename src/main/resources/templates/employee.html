@@ -26,14 +26,16 @@
             <th>Job</th>
             <th>Salary</th>
             <th>Started Working</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="employee: ${employees}">
-            <td th:text="${employee.name}">Name</td>
+            <td><a th:href="@{/employee/edit/{employeeID}(employeeID=${employee.id})}" th:text="${employee.name}">Name</a></td>
             <td th:text="${employee.job}">Job</td>
             <td th:text="${employee.salary}">Salary</td>
             <td th:text="${employee.startedWorking}">Started Working</td>
+            <td><a href="/employee/delete/{id}" th:href="@{/employee/delete/{employeeID}(employeeID=${employee.id})}">Töröl</a></td>
         </tr>
         </tbody>
     </table>

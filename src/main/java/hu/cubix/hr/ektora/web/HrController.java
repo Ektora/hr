@@ -1,6 +1,9 @@
 package hu.cubix.hr.ektora.web;
 
+import hu.cubix.hr.ektora.model.Employee;
 import hu.cubix.hr.ektora.model.EmployeeDTO;
+import hu.cubix.hr.ektora.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +19,9 @@ import java.util.stream.Collectors;
 public class HrController {
 
     private Map<Long,EmployeeDTO> employeesMap;
+
+    @Autowired
+    EmployeeService employeeService;
 
     public HrController(){
         employeesMap = new HashMap<>();
@@ -42,6 +48,11 @@ public class HrController {
         if(employeeDTO != null)
             return ResponseEntity.ok(employeeDTO);
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/salary")
+    public int getPayRaisePercent(@RequestBody Employee employee){
+        return employeeService.getPayRaisePercent(employee);
     }
 
     @PostMapping

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee editor</title>
+  <link rel="stylesheet" href="/css/employeeStyle.css">
+</head>
+<body>
+<form method="post" th:action="@{/employee/edit/{employeeID}(employeeID=${employee.id})}" th:object="${employee}">
+    <label for="name">Name:</label>
+    <input id="name" th:field="*{name}" type="text"/><br>
+    <label for="job">Job:</label>
+    <input id="job" th:field="*{job}" type="text"/><br>
+    <label for="salary">Salary:</label>
+    <input id="salary" th:field="*{salary}" type="number"/><br>
+    <label for="startedWorking">Started Working:</label>
+    <input id="startedWorking" type="datetime-local" th:field="*{startedWorking}" /><br>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>
