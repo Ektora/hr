@@ -37,7 +37,7 @@ public class HrTLController {
     }
 
     @GetMapping("/employee/edit/{employeeID}")
-    public String editEmployee(@PathVariable Long employeeID, Map<String,Object> model){
+    public String editEmployee(@PathVariable long employeeID, Map<String,Object> model){
         Employee employee = employees.stream()
                 .filter(searchedEmployee -> searchedEmployee.getId() == employeeID)
                 .findFirst()
@@ -47,7 +47,7 @@ public class HrTLController {
     }
 
     @PostMapping("/employee/edit/{employeeID}")
-    public String editEmployee(@PathVariable Long employeeID, Employee employee){
+    public String editEmployee(@PathVariable long employeeID, Employee employee){
         Employee resultEmployee = employees.stream()
                 .filter(searchedEmployee -> searchedEmployee.getId() == employeeID)
                 .findFirst()
@@ -62,7 +62,7 @@ public class HrTLController {
     }
 
     @GetMapping("/employee/delete/{employeeID}")
-    public String editEmployee(@PathVariable Long employeeID){
+    public String editEmployee(@PathVariable long employeeID){
         employees.removeIf(employee -> employee.getId() == employeeID);
         return "redirect:/employee";
     }
