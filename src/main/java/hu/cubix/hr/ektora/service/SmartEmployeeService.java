@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Service
-public class SmartEmployeeService implements EmployeeService{
+public class SmartEmployeeService extends AbstractEmployeeService implements EmployeeService{
 
 //    @Value("${hr.employee.smart.maxYearsThreshold}")
 //    private double maxYearsThreshold;

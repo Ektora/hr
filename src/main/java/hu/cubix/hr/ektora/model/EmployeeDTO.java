@@ -1,13 +1,27 @@
 package hu.cubix.hr.ektora.model;
 
+
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalDateTime;
 
 public class EmployeeDTO {
 
     private Long id;
+
+    @NotBlank(message = "A név nem lehet üres és nem állhat csak szóközökből!")
     private String name;
+
+    @NotBlank(message = "A beosztás nem lehet üres és nem állhat csak szóközökből!")
     private String job;
+
+    @Positive(message = "A fizetésnek pozitív értéknek kell lennie!")
     private int salary;
+
+    @Past(message = "A belépés dátumának múltbéli időpontnak kell lennie!")
     private LocalDateTime startedWorking;
 
     public Long getId() {
